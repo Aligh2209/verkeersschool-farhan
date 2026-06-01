@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  // Geen static export — API routes nodig voor Mollie
   images: { unoptimized: true },
 };
 
