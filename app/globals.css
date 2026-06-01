@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* ── Black scale ──────────────────────────────────── */
+  --color-navy-950: #080808;
+  --color-navy-900: #0f0f0f;
+  --color-navy-800: #181818;
+  --color-navy-700: #212121;
+  --color-navy-600: #2c2c2c;
+  --color-navy-500: #383838;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* ── Orange scale ─────────────────────────────────── */
+  --color-coral-600: #c2410c;
+  --color-coral-500: #f97316;
+  --color-coral-400: #fb923c;
+  --color-coral-300: #fdba74;
+  --color-coral-200: #fed7aa;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #080808;
+  color: #e2e8f0;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Background text stream ──────────────────────────── */
+@keyframes streamLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes streamRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Ticker ──────────────────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Floating cards ──────────────────────────────────── */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
+}
+
+/* ── Aurora blobs ────────────────────────────────────── */
+@keyframes blobA {
+  0%, 100% { transform: translate(-20%, -30%) scale(1); }
+  33%       { transform: translate(2%, -44%) scale(1.2); }
+  66%       { transform: translate(-12%, -18%) scale(0.9); }
+}
+@keyframes blobB {
+  0%, 100% { transform: translate(20%, 30%) scale(1); }
+  33%       { transform: translate(36%, 14%) scale(0.85); }
+  66%       { transform: translate(10%, 42%) scale(1.15); }
+}
+@keyframes blobC {
+  0%, 100% { transform: translate(-50%, 60%) scale(1); }
+  50%       { transform: translate(-33%, 44%) scale(1.12); }
 }
