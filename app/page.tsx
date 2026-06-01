@@ -331,10 +331,10 @@ export default function HomePage() {
         <Reveal className="text-center px-6">
           <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Hoe het werkt</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-            Van aanmelding<br />tot rijbewijs.
+            Zo werkt het.
           </h2>
           <p className="text-slate-500 mt-4 text-sm max-w-xs mx-auto">
-            Scroll door de 5 stappen. De 3D-kaart licht op per fase.
+            Van proefles tot rijbewijs — scroll door de 5 stappen.
           </p>
         </Reveal>
       </div>
