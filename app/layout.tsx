@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import FomoToast from "./components/FomoToast";
+import CookieBanner from "./components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" data-scroll-behavior="smooth" className={`${geistSans.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-navy-950 text-slate-100 antialiased">
+      <body className="min-h-full flex flex-col bg-[#080808] text-slate-100 antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -41,6 +42,9 @@ export default function RootLayout({
             <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.122 1.528 5.855L.057 23.882a.5.5 0 00.61.61l6.083-1.46A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.877 0-3.65-.49-5.19-1.348l-.37-.213-3.838.921.939-3.76-.234-.389A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
           </svg>
         </a>
+
+        {/* Cookie banner */}
+        <CookieBanner />
 
         {/* FOMO notifications */}
         <FomoToast />

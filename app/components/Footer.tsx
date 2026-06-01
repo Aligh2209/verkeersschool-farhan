@@ -76,7 +76,12 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#1a1a1a] px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
-        <span>© {new Date().getFullYear()} Verkeersschool Farhan. Alle rechten voorbehouden.</span>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span>© {new Date().getFullYear()} Verkeersschool Farhan. Alle rechten voorbehouden.</span>
+          <Link href="/privacy" className="hover:text-slate-400 transition-colors underline underline-offset-2">
+            Privacyverklaring
+          </Link>
+        </div>
         <Link href="/contact" className="text-coral-400 hover:text-coral-300 transition-colors font-medium">
           Plan een proefles →
         </Link>
