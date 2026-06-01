@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Vercel host — geen static export nodig
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
