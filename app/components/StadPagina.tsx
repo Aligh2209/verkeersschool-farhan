@@ -13,7 +13,7 @@ type Props = {
 }
 
 export default function StadPagina({ stad, provincie, slug, beschrijving, buurten, reviews, faq }: Props) {
-  const waPhone = `https://wa.me/31612345678?text=Hallo,%20ik%20zoek%20rijles%20in%20${encodeURIComponent(stad)}`
+  const waPhone = `https://wa.me/31644626777?text=Hallo,%20ik%20zoek%20rijles%20in%20${encodeURIComponent(stad)}`
 
   return (
     <div className="min-h-screen bg-navy-950">
@@ -51,7 +51,7 @@ export default function StadPagina({ stad, provincie, slug, beschrijving, buurte
               💬 WhatsApp
             </a>
             <a
-              href="tel:+31612345678"
+              href="tel:+31644626777"
               className="bg-navy-700 hover:bg-navy-600 text-white font-bold px-7 py-3.5 rounded-xl transition-colors border border-navy-500"
             >
               📞 Bellen

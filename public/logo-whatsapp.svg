@@ -1,0 +1,43 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="35%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Oranje achtergrond -->
+  <rect width="500" height="500" rx="90" fill="#f97316"/>
+  <rect width="500" height="500" rx="90" fill="url(#glow)"/>
+
+  <!-- VERKEERSSCHOOL klein bovenaan -->
+  <text
+    x="250" y="76"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="17"
+    font-weight="700"
+    fill="rgba(255,255,255,0.72)"
+    text-anchor="middle"
+    letter-spacing="5.5">VERKEERSSCHOOL</text>
+
+  <!-- F lettermark -->
+  <!-- Verticale balk -->
+  <rect x="138" y="115" width="56" height="244" rx="9" fill="white"/>
+  <!-- Bovenste balk -->
+  <rect x="194" y="115" width="172" height="56" rx="9" fill="white"/>
+  <!-- Middelste balk -->
+  <rect x="194" y="213" width="122" height="50" rx="9" fill="white"/>
+
+  <!-- Oranje streep decoratief onder F -->
+  <rect x="138" y="372" width="56" height="8" rx="4" fill="rgba(255,255,255,0.35)"/>
+
+  <!-- FARHAN groot onderaan -->
+  <text
+    x="250" y="438"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="54"
+    font-weight="900"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="10">FARHAN</text>
+</svg>

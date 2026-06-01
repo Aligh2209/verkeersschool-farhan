@@ -202,12 +202,6 @@ function CountUp({ to, suffix = '' }: { to: number; suffix?: string }) {
    PAGE DATA
 ══════════════════════════════════════════════════════════ */
 
-const reviews = [
-  { naam: 'Sara M.', tekst: 'In één keer geslaagd. Farhan is rustig, duidelijk en gelooft in je — ook als je dat zelf even niet doet.', locatie: 'Assen' },
-  { naam: 'Mohammed K.', tekst: 'Na twee mislukkingen elders: bij Farhan in 6 weken geslaagd. Andere aanpak, beter resultaat.', locatie: 'Amersfoort' },
-  { naam: 'Lisa V.', tekst: 'Alles klopte: de auto, de timing, de begeleiding. Nooit het gevoel dat ik achter liep.', locatie: 'Assen' },
-  { naam: 'Yusuf A.', tekst: 'Transparante prijzen, nul gedoe. Je betaalt voor wat je krijgt — en dat is veel.', locatie: 'Amersfoort' },
-]
 
 /* ══════════════════════════════════════════════════════════
    PAGE
@@ -273,7 +267,7 @@ export default function HomePage() {
             Rijschool · Assen &amp; Amersfoort
           </motion.p>
 
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[96px] font-extrabold text-white leading-[0.92] tracking-tight mb-8">
+          <h1 className="text-[clamp(2.8rem,10vw,6rem)] font-extrabold text-white leading-[0.92] tracking-tight mb-6">
             <span className="block">
               <WordReveal text="Jij rijdt." delay={0.4} />
             </span>
@@ -286,7 +280,7 @@ export default function HomePage() {
           </h1>
 
           <motion.p
-            className="text-slate-400 text-base md:text-lg mb-10 max-w-sm"
+            className="text-slate-400 text-base md:text-lg mb-4 max-w-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.7 }}
@@ -294,20 +288,35 @@ export default function HomePage() {
             Verkeersschool Farhan. 92% slagingspercentage. Van aanmelding tot rijbewijs — zonder gedoe.
           </motion.p>
 
+          {/* Schaarste indicator */}
+          <motion.div
+            className="flex items-center gap-2 mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.7, duration: 0.6 }}
+          >
+            <span className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className={`w-2 h-2 rounded-full ${i < 2 ? 'bg-[#333]' : 'bg-coral-500'}`} />
+              ))}
+            </span>
+            <span className="text-xs text-slate-500">Nog <span className="text-coral-400 font-bold">3 plekken</span> in juni</span>
+          </motion.div>
+
           <motion.div
             className="flex flex-wrap gap-3 justify-center"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.6 }}
+            transition={{ delay: 1.9, duration: 0.6 }}
           >
             <Link
               href="/contact"
-              className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-9 py-4 rounded-xl transition-all shadow-xl shadow-coral-500/25 hover:shadow-coral-500/40 hover:-translate-y-0.5 text-base"
+              className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-coral-500/25 hover:-translate-y-0.5 text-sm sm:text-base"
             >
-              Direct inschrijven
+              🚗 Plan een proefles — €60
             </Link>
             <a
-              href="https://wa.me/31612345678?text=Hallo%2C%20ik%20wil%20meer%20informatie"
+              href="https://wa.me/31644626777?text=Hallo%2C%20ik%20wil%20een%20proefles%20plannen"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white/15 hover:border-white/30 text-white font-bold px-9 py-4 rounded-xl transition-all hover:-translate-y-0.5 text-base"
@@ -341,31 +350,99 @@ export default function HomePage() {
       <ProcessSection />
 
       {/* ════════════════════════════════════════
-          DIFFERENTIATORS
+          WAAROM FARHAN
       ════════════════════════════════════════ */}
-      <section className="py-24 px-6 bg-navy-950 border-t border-navy-800">
+      <section className="py-24 px-6 bg-[#080808] border-t border-[#1a1a1a]">
         <div className="max-w-6xl mx-auto">
-          <Reveal className="mb-14">
-            <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Waarom Farhan</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight max-w-md">
-              Niet de goedkoopste.<br />Wel de beste keuze.
-            </h2>
+
+          {/* Header */}
+          <Reveal className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Waarom Farhan</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                Eerlijk, persoonlijk<br />en bewezen effectief.
+              </h2>
+            </div>
+            <p className="text-slate-500 text-sm max-w-xs leading-relaxed md:text-right">
+              Geen verborgen kosten, geen callcenters. Gewoon een goede instructeur die jou naar je rijbewijs brengt.
+            </p>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Stat cards — 4 in een rij */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { nr: '92%', label: 'Slagingspercentage', tekst: 'Niet een belofte, maar een gemeten resultaat over honderden leerlingen in Assen en Amersfoort.' },
-              { nr: '1:1', label: 'Altijd persoonlijk', tekst: 'Geen schaalmodel. Jij hebt één instructeur, één lijn, één aanpak — van begin tot examen.' },
-              { nr: '0',   label: 'Verborgen kosten',  tekst: 'Pakketten staan volledig open. Je weet op dag één wat je betaalt, inclusief examen.' },
+              {
+                nr: '€60',
+                sub: 'per les',
+                label: '60 minuten, 1-op-1',
+                tekst: 'Volle 60 minuten rijles voor een vaste prijs. Geen verkorte lessen, geen toeslagen.',
+                highlight: true,
+              },
+              {
+                nr: '92%',
+                sub: 'slaagt',
+                label: 'Slagingspercentage',
+                tekst: 'Gemeten over honderden leerlingen in Assen en Amersfoort. Niet een belofte — een resultaat.',
+                highlight: false,
+              },
+              {
+                nr: '1:1',
+                sub: 'begeleiding',
+                label: 'Altijd persoonlijk',
+                tekst: 'Eén instructeur, van proefles tot examen. Geen wisselende leerkrachten, geen gezichtsloze rijschool.',
+                highlight: false,
+              },
+              {
+                nr: '0',
+                sub: 'verrassingen',
+                label: 'Transparante kosten',
+                tekst: 'Alle kosten vooraf duidelijk. Wat je ziet is wat je betaalt — inclusief examen in het pakket.',
+                highlight: false,
+              },
             ].map((d, i) => (
-              <Reveal key={d.label} delay={i * 0.12}>
-                <TiltCard className="h-full bg-navy-900 border border-navy-700 rounded-2xl p-8 hover:border-coral-500/40 transition-colors">
-                  <div className="text-5xl md:text-6xl font-extrabold text-coral-400 mb-4 leading-none">{d.nr}</div>
-                  <h3 className="text-white font-bold text-lg mb-3">{d.label}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{d.tekst}</p>
+              <Reveal key={d.label} delay={i * 0.1}>
+                <TiltCard
+                  className={`h-full rounded-2xl p-6 flex flex-col transition-colors ${
+                    d.highlight
+                      ? 'bg-[#1a0d00] border border-coral-500/60 shadow-xl shadow-coral-500/10'
+                      : 'bg-[#111111] border border-[#222222] hover:border-[#333333]'
+                  }`}
+                >
+                  <div className="mb-4">
+                    <span className={`text-4xl md:text-5xl font-extrabold leading-none ${d.highlight ? 'text-coral-400' : 'text-white'}`}>
+                      {d.nr}
+                    </span>
+                    <span className="text-slate-500 text-sm ml-2">{d.sub}</span>
+                  </div>
+                  <h3 className={`font-bold text-sm mb-2 uppercase tracking-wide ${d.highlight ? 'text-coral-300' : 'text-slate-300'}`}>
+                    {d.label}
+                  </h3>
+                  <p className="text-slate-500 text-xs leading-relaxed flex-1">{d.tekst}</p>
                 </TiltCard>
               </Reveal>
             ))}
           </div>
+
+          {/* Feature strip */}
+          <Reveal>
+            <div className="flex flex-wrap gap-3 justify-start">
+              {[
+                '📍 Actief in Assen & Amersfoort',
+                '🚗 Moderne auto met dubbele bediening',
+                '🌍 Les in Nederlands of Engels',
+                '📅 Flexibele lestijden — ook avond & weekend',
+                '🔁 Na zak: direct doorgaan',
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="text-sm text-slate-400 px-4 py-2 rounded-full border border-[#222222] bg-[#111111]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
@@ -395,75 +472,206 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           PAKKETTEN
       ════════════════════════════════════════ */}
-      <section className="py-24 px-6 bg-navy-950">
+      <section className="py-24 px-6 bg-[#080808] border-t border-[#1a1a1a]">
         <div className="max-w-5xl mx-auto">
-          <Reveal className="mb-14 text-center">
-            <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Pakketten</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-              Alles inbegrepen.<br />Geen verrassingen.
-            </h2>
+
+          {/* Header */}
+          <Reveal className="mb-4 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Pakketten & Prijzen</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                Alles inbegrepen.<br />Geen verrassingen.
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-slate-500 md:text-right">
+              <span className="text-coral-400">●</span>
+              Elke les: 60 minuten · €60 per losse les
+            </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Savings banner */}
+          <Reveal className="mb-10">
+            <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-coral-500/20 bg-coral-500/5 w-fit">
+              <span className="text-coral-400 text-sm font-bold">💡</span>
+              <span className="text-slate-400 text-sm">
+                Met een pakket betaal je <span className="text-white font-semibold">~€30/les</span> — de helft van de losse prijs.
+                Bespaar tot <span className="text-coral-400 font-bold">€1.401</span>.
+              </span>
+            </div>
+          </Reveal>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
             {[
-              { naam: 'Starter',  prijs: '€ 35', per: '/ les', sub: 'Ideaal als je al enige rijervaring hebt.',             items: ['10 rijlessen van 60 min', 'Voortgangsgesprek', 'Alle locaties'], top: false },
-              { naam: 'Compleet', prijs: '€ 1.199', per: '',   sub: 'Van nul tot rijbewijs — ons meest gekozen pakket.',   items: ['40 rijlessen van 60 min', 'Theoriebegeleiding', 'TTT inbegrepen', 'Eerste examen inbegrepen'], top: true },
-              { naam: 'Intensief', prijs: '€ 1.599', per: '',  sub: 'Snel je rijbewijs — spoedplanning mogelijk.',          items: ['50 rijlessen van 60 min', 'Theoriebegeleiding', 'TTT inbegrepen', 'Twee examens inbegrepen'], top: false },
+              {
+                naam: 'Losse lessen',
+                prijs: '€60',
+                per: '/ les',
+                perLes: null,
+                bespaar: null,
+                sub: 'Flexibel, geen verplichtingen.',
+                items: [
+                  '60 minuten per les',
+                  'Geen minimumafname',
+                  'Assen of Amersfoort',
+                  'Voortgangsgesprek op verzoek',
+                ],
+                top: false,
+                cta: 'Plan een les',
+              },
+              {
+                naam: 'Compleet',
+                prijs: '€1.199',
+                per: 'totaal',
+                perLes: '~€30/les',
+                bespaar: 'Bespaar €1.201',
+                sub: 'Van nul tot rijbewijs, alles inbegrepen.',
+                items: [
+                  '40 rijlessen van 60 min',
+                  'Theoriebegeleiding',
+                  'Tussentijdse toets (TTT)',
+                  'Eerste examen inbegrepen',
+                  'Voortgangsgesprekken',
+                  'Assen & Amersfoort',
+                ],
+                top: true,
+                cta: 'Inschrijven',
+              },
+              {
+                naam: 'Intensief',
+                prijs: '€1.599',
+                per: 'totaal',
+                perLes: '~€32/les',
+                bespaar: 'Bespaar €1.401',
+                sub: 'Snel rijbewijs — spoedplanning mogelijk.',
+                items: [
+                  '50 rijlessen van 60 min',
+                  'Theoriebegeleiding',
+                  'Tussentijdse toets (TTT)',
+                  '2 examens inbegrepen',
+                  'Spoedplanning prioriteit',
+                  'Assen & Amersfoort',
+                ],
+                top: false,
+                cta: 'Inschrijven',
+              },
             ].map((p, i) => (
               <Reveal key={p.naam} delay={i * 0.1}>
-                <TiltCard className={`relative h-full rounded-2xl p-8 flex flex-col border transition-colors ${p.top ? 'bg-navy-800 border-coral-500/70 shadow-xl shadow-coral-500/10' : 'bg-navy-900 border-navy-700 hover:border-navy-500'}`}>
-                  {p.top && <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-coral-500 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Meest gekozen</span>}
-                  <h3 className="text-xl font-bold text-white mb-1">{p.naam}</h3>
-                  <p className="text-slate-500 text-sm mb-5">{p.sub}</p>
-                  <div className="mb-6">
-                    <span className={`text-4xl font-extrabold ${p.top ? 'text-coral-400' : 'text-white'}`}>{p.prijs}</span>
-                    {p.per && <span className="text-slate-500 text-sm ml-1">{p.per}</span>}
+                <TiltCard
+                  className={`relative h-full rounded-2xl flex flex-col transition-all ${
+                    p.top
+                      ? 'bg-[#130800] border-2 border-coral-500/80 shadow-2xl shadow-coral-500/15 md:-mt-4 md:mb-0'
+                      : 'bg-[#111111] border border-[#222222] hover:border-[#333333]'
+                  }`}
+                >
+                  {/* Badge */}
+                  {p.top && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-coral-500 text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest whitespace-nowrap shadow-lg">
+                      ⭐ Meest gekozen
+                    </div>
+                  )}
+
+                  <div className="p-7 flex flex-col h-full">
+                    {/* Name + savings */}
+                    <div className="flex items-start justify-between mb-1">
+                      <h3 className="text-white font-extrabold text-lg">{p.naam}</h3>
+                      {p.bespaar && (
+                        <span className="text-[10px] font-bold text-coral-400 bg-coral-500/10 border border-coral-500/25 px-2 py-0.5 rounded-full whitespace-nowrap">
+                          {p.bespaar}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-slate-500 text-xs mb-5">{p.sub}</p>
+
+                    {/* Price */}
+                    <div className="mb-1">
+                      <span className={`text-4xl font-extrabold ${p.top ? 'text-coral-400' : 'text-white'}`}>
+                        {p.prijs}
+                      </span>
+                      <span className="text-slate-500 text-sm ml-2">{p.per}</span>
+                    </div>
+                    {p.perLes && (
+                      <p className="text-slate-600 text-xs mb-6">
+                        = <span className="text-slate-400 font-semibold">{p.perLes}</span> bij dit pakket
+                      </p>
+                    )}
+                    {!p.perLes && <div className="mb-6" />}
+
+                    {/* Features */}
+                    <ul className="space-y-2.5 mb-8 flex-1">
+                      {p.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300">
+                          <span className={`text-xs shrink-0 ${p.top ? 'text-coral-400' : 'text-slate-500'}`}>✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <Link
+                      href="/contact"
+                      className={`block text-center font-bold py-3.5 rounded-xl transition-all text-sm ${
+                        p.top
+                          ? 'bg-coral-500 hover:bg-coral-600 text-white shadow-lg shadow-coral-500/25 hover:-translate-y-0.5'
+                          : 'bg-[#1a1a1a] hover:bg-[#222222] border border-[#2c2c2c] text-white hover:-translate-y-0.5'
+                      }`}
+                    >
+                      {p.cta}
+                    </Link>
                   </div>
-                  <ul className="space-y-2.5 mb-8 flex-1">
-                    {p.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300">
-                        <span className="text-coral-400 text-xs">✓</span> {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/contact" className={`block text-center font-semibold py-3 rounded-xl transition-colors ${p.top ? 'bg-coral-500 hover:bg-coral-600 text-white' : 'bg-navy-700 hover:bg-navy-600 border border-navy-600 text-white'}`}>
-                    Inschrijven
-                  </Link>
                 </TiltCard>
               </Reveal>
             ))}
           </div>
-          <Reveal className="text-center mt-8">
-            <Link href="/pakketten" className="text-slate-500 hover:text-coral-400 text-sm transition-colors underline underline-offset-4">
-              Alle losse tarieven bekijken
+
+          {/* Bottom note */}
+          <Reveal className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#1a1a1a]">
+            <p className="text-slate-600 text-xs">
+              * Alle bedragen inclusief btw. CBR-examengeld niet inbegrepen bij losse lessen.
+            </p>
+            <Link href="/pakketten" className="text-slate-500 hover:text-coral-400 text-sm transition-colors underline underline-offset-4 whitespace-nowrap">
+              Volledige prijslijst →
             </Link>
           </Reveal>
+
         </div>
       </section>
 
+
       {/* ════════════════════════════════════════
-          REVIEWS
+          FAQ
       ════════════════════════════════════════ */}
-      <section className="py-24 px-6 bg-navy-900 border-t border-navy-700">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="mb-14">
-            <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Reviews</p>
-            <h2 className="text-4xl font-extrabold text-white">Wat ze zeggen.</h2>
+      <section className="py-20 px-6 bg-[#080808] border-t border-[#1a1a1a]">
+        <div className="max-w-3xl mx-auto">
+          <Reveal className="text-center mb-12">
+            <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Veelgestelde vragen</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">Eerlijke antwoorden.</h2>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {reviews.map((r, i) => (
-              <Reveal key={r.naam} delay={i * 0.1} from={i % 2 === 0 ? 'left' : 'right'}>
-                <TiltCard className="h-full bg-navy-800 border border-navy-700 hover:border-coral-500/30 rounded-2xl p-7 transition-colors">
-                  <div className="text-amber-400 text-sm mb-3">{'★★★★★'}</div>
-                  <p className="text-white text-base leading-relaxed mb-5 font-medium">&ldquo;{r.tekst}&rdquo;</p>
-                  <div className="flex items-center gap-3">
-                    <div className="bg-coral-500 rounded-full w-9 h-9 flex items-center justify-center text-white text-sm font-bold shrink-0">{r.naam[0]}</div>
-                    <div>
-                      <p className="text-white text-sm font-semibold">{r.naam}</p>
-                      <p className="text-slate-500 text-xs">{r.locatie}</p>
-                    </div>
-                  </div>
-                </TiltCard>
-              </Reveal>
+          <div className="space-y-3">
+            {[
+              { v: 'Kan ik eerst een proefles doen voor ik me vastleg?', a: 'Ja — en dat raden we zelfs aan. Voor €60 rijd je een uur met Farhan. Daarna weet je precies wat je nodig hebt en wat het kost. Geen verplichtingen.' },
+              { v: 'Wat als ik zak voor mijn rijexamen?', a: 'Dan staan we klaar. We bespreken wat er misging, oefenen de zwakke punten extra en plannen het herexamen zo snel mogelijk in. Bij het Intensief-pakket is een tweede examen al inbegrepen.' },
+              { v: 'Hoe snel kan ik beginnen met rijlessen?', a: 'Vaak al binnen een week — soms zelfs eerder. Stuur een WhatsApp en we kijken direct naar beschikbaarheid in Assen of Amersfoort.' },
+              { v: 'Is theoriebegeleiding inbegrepen?', a: 'In het Compleet- en Intensief-pakket: ja. We helpen je met theoriemateriaal en kunnen je begeleiden zodat je theorie en praktijk tegelijk kunt doen.' },
+              { v: 'Wat als ik al eerder gereden heb?', a: 'Dan starten we met een proefles om je niveau te beoordelen. Op basis daarvan adviseren we hoeveel lessen je nodig hebt — niet meer, niet minder.' },
+              { v: 'Geven jullie ook les in het Engels?', a: 'Ja. Farhan geeft les in zowel het Nederlands als het Engels. Geef het aan bij de aanmelding.' },
+            ].map((item, i) => (
+              <motion.details
+                key={item.v}
+                className="group bg-[#111] border border-[#1a1a1a] rounded-2xl overflow-hidden"
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+              >
+                <summary className="flex justify-between items-center cursor-pointer px-6 py-4 text-white font-medium list-none hover:bg-[#161616] transition-colors text-sm md:text-base">
+                  {item.v}
+                  <span className="text-coral-400 text-xl group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
+                </summary>
+                <div className="px-6 pb-5 pt-3 text-slate-400 text-sm leading-relaxed border-t border-[#1a1a1a]">
+                  {item.a}
+                </div>
+              </motion.details>
             ))}
           </div>
         </div>
@@ -489,7 +697,7 @@ export default function HomePage() {
             <Link href="/contact" className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-10 py-4 rounded-xl transition-all shadow-xl shadow-coral-500/20 hover:-translate-y-0.5 inline-block">
               Inschrijven
             </Link>
-            <a href="https://wa.me/31612345678" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/31644626777" target="_blank" rel="noopener noreferrer"
               className="border border-white/15 hover:border-white/30 text-white font-bold px-10 py-4 rounded-xl transition-all hover:-translate-y-0.5 inline-block"
               style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(8px)' }}>
               💬 WhatsApp

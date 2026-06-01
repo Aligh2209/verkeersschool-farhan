@@ -1,0 +1,31 @@
+<svg width="260" height="58" viewBox="0 0 260 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (transparent version — remove rect for transparent bg) -->
+  <rect width="260" height="58" fill="#080808"/>
+
+  <!-- VERKEERSSCHOOL label -->
+  <text
+    x="22"
+    y="18"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="9"
+    font-weight="600"
+    fill="#6B7280"
+    letter-spacing="3.8"
+    text-anchor="start"
+  >VERKEERSSCHOOL</text>
+
+  <!-- Orange separator line -->
+  <rect x="22" y="24" width="18" height="2" rx="1" fill="#f97316"/>
+
+  <!-- FARHAN wordmark -->
+  <text
+    x="48"
+    y="50"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="28"
+    font-weight="800"
+    fill="#FFFFFF"
+    letter-spacing="1.5"
+    text-anchor="start"
+  >FARHAN</text>
+</svg>
