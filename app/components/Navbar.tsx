@@ -163,13 +163,20 @@ export default function Navbar() {
 
         </ul>
 
-        {/* Desktop CTA */}
-        <Link
-          href="/contact"
-          className="hidden md:block bg-coral-500 hover:bg-coral-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors text-sm"
-        >
-          Inschrijven
-        </Link>
+        {/* Desktop: phone + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <a href="tel:+31644626777"
+            className="flex items-center gap-1.5 text-slate-400 hover:text-coral-400 transition-colors text-sm font-medium">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.02 8.81a19.79 19.79 0 01-3.07-8.59A2 2 0 012.88 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            +31 6 44626777
+          </a>
+          <Link href="/contact"
+            className="bg-coral-500 hover:bg-coral-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors text-sm">
+            Inschrijven
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button

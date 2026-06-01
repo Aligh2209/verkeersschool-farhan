@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import FomoToast from "./components/FomoToast";
 import CookieBanner from "./components/CookieBanner";
+import StickyMobileCTA from "./components/StickyMobileCTA";
+import ExitIntent from "./components/ExitIntent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Verkeersschool Farhan | Rijlessen in Assen & Amersfoort",
-  description: "Verkeersschool Farhan biedt professionele rijlessen in Assen en Amersfoort. Schrijf je nu in voor een pakket dat bij jou past.",
+  description: "Verkeersschool Farhan biedt professionele rijlessen in Assen en Amersfoort. 92% slagingspercentage. Plan een proefles voor €60.",
 };
 
 export default function RootLayout({
@@ -29,12 +31,12 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
 
-        {/* Floating WhatsApp */}
+        {/* Floating WhatsApp — desktop */}
         <a
           href="https://wa.me/31644626777?text=Hallo%2C%20ik%20wil%20meer%20informatie%20over%20rijlessen"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-20 right-[4.5rem] sm:bottom-24 sm:right-[4.5rem] z-50 w-10 h-10 sm:w-12 sm:h-12 bg-green-500 hover:bg-green-400 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
+          className="hidden md:flex fixed bottom-24 right-[4.5rem] z-50 w-12 h-12 bg-green-500 hover:bg-green-400 rounded-full items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
           aria-label="WhatsApp"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
@@ -43,11 +45,17 @@ export default function RootLayout({
           </svg>
         </a>
 
+        {/* Sticky mobile CTA */}
+        <StickyMobileCTA />
+
         {/* Cookie banner */}
         <CookieBanner />
 
         {/* FOMO notifications */}
         <FomoToast />
+
+        {/* Exit intent popup */}
+        <ExitIntent />
 
         {/* AI Chatbot */}
         <ChatBot />

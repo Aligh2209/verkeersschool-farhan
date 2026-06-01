@@ -2,15 +2,15 @@ import Link from 'next/link'
 
 const pakketten = [
   {
-    naam: 'Starter',
-    prijs: '€ 35',
+    naam: 'Losse lessen',
+    prijs: '€ 60',
     perLes: 'per les',
-    omschrijving: 'Ideaal als je al enige rijervaring hebt en gericht wil oefenen.',
+    omschrijving: 'Flexibel starten — geen verplichtingen, altijd 60 minuten.',
     functies: [
-      '10 rijlessen van 60 min',
-      'Begeleiding bij theorie',
-      'Voortgangsgesprek na 5 lessen',
-      'Alle locaties beschikbaar',
+      '60 minuten per les',
+      'Geen minimumafname',
+      'Voortgangsgesprek op verzoek',
+      'Assen & Amersfoort',
     ],
     populair: false,
   },
