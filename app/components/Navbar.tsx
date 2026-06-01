@@ -172,9 +172,9 @@ export default function Navbar() {
             </svg>
             +31 6 44626777
           </a>
-          <Link href="/contact"
-            className="bg-coral-500 hover:bg-coral-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors text-sm">
-            Inschrijven
+          <Link href="/boeken"
+            className="bg-coral-500 hover:bg-coral-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors text-sm whitespace-nowrap">
+            🚗 Proefles boeken
           </Link>
         </div>
 

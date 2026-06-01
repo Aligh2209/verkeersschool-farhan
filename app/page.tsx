@@ -310,7 +310,7 @@ export default function HomePage() {
             transition={{ delay: 1.9, duration: 0.6 }}
           >
             <Link
-              href="/contact"
+              href="/boeken"
               className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-coral-500/25 hover:-translate-y-0.5 text-sm sm:text-base"
             >
               🚗 Plan een proefles — €60
@@ -708,3 +708,4 @@ export default function HomePage() {
     </>
   )
 }
+

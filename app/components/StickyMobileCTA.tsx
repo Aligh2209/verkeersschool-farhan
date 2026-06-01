@@ -33,7 +33,7 @@ export default function StickyMobileCTA() {
         style={{ background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(20px)' }}
       >
         <Link
-          href="/contact"
+          href="/boeken"
           className="flex-1 bg-coral-500 hover:bg-coral-600 text-white font-bold py-3 rounded-xl text-sm text-center transition-colors shadow-lg shadow-coral-500/20"
         >
           🚗 Plan proefles — €60
