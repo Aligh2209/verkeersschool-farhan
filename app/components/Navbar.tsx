@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './Logo'
 
@@ -27,6 +28,14 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+
+  // Sluit alles bij route-wijziging
+  useEffect(() => {
+    setMobileOpen(false)
+    setDropdownOpen(false)
+    document.body.style.overflow = ''
+  }, [pathname])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -34,9 +43,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock body scroll when menu open
+  // Lock body scroll — ALLEEN op mobiel
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    const isMobile = window.innerWidth < 768
+    if (isMobile) {
+      document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    }
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
