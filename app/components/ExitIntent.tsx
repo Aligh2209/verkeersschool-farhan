@@ -20,10 +20,11 @@ export default function ExitIntent() {
       }
     }
 
-    // Wait 10s before activating (don't annoy people who just arrived)
+    // Wacht 45 seconden EN alleen op desktop (niet op mobiel)
+    if (window.innerWidth < 768) return
     const t = setTimeout(() => {
       document.addEventListener('mouseleave', onMouseLeave)
-    }, 10000)
+    }, 45000)
 
     return () => {
       clearTimeout(t)
