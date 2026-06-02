@@ -304,14 +304,14 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap gap-3 justify-center"
+            className="flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto px-4 sm:px-0"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.9, duration: 0.6 }}
           >
             <Link
               href="/boeken"
-              className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-coral-500/25 hover:-translate-y-0.5 text-sm sm:text-base"
+              className="bg-coral-500 hover:bg-coral-600 text-white font-bold px-7 py-4 rounded-xl transition-all shadow-xl shadow-coral-500/25 hover:-translate-y-0.5 text-base text-center"
             >
               🚗 Plan een proefles — €60
             </Link>
@@ -319,8 +319,7 @@ export default function HomePage() {
               href="https://wa.me/31644626777?text=Hallo%2C%20ik%20wil%20een%20proefles%20plannen"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white/15 hover:border-white/30 text-white font-bold px-9 py-4 rounded-xl transition-all hover:-translate-y-0.5 text-base"
-              style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(8px)' }}
+              className="bg-[#1a1a1a] hover:bg-[#222] border border-white/20 text-white font-bold px-7 py-4 rounded-xl transition-all hover:-translate-y-0.5 text-base text-center"
             >
               💬 WhatsApp
             </a>

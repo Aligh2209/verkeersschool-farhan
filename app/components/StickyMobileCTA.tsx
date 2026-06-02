@@ -8,13 +8,15 @@ export default function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    // Show after slight delay
-    const t = setTimeout(() => setVisible(true), 2000)
-    // Hide when near bottom of page (form already visible)
+    // Toon pas na 3 seconden — niet meteen op de hero
+    const t = setTimeout(() => setVisible(true), 3000)
+
     const onScroll = () => {
       const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight)
-      setVisible(pct < 0.85)
+      // Verberg dichtbij het contactformulier (onderaan)
+      setVisible(pct < 0.88)
     }
+
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => { clearTimeout(t); window.removeEventListener('scroll', onScroll) }
   }, [])
@@ -23,18 +25,18 @@ export default function StickyMobileCTA() {
 
   return (
     <motion.div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 pb-safe"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40"
       initial={{ y: 80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
       <div
-        className="flex gap-2 p-3 border-t border-[#1a1a1a]"
-        style={{ background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(20px)' }}
+        className="flex gap-2 px-4 py-3 border-t border-[#1a1a1a]"
+        style={{ background: 'rgba(8,8,8,0.96)', backdropFilter: 'blur(20px)' }}
       >
         <Link
           href="/boeken"
-          className="flex-1 bg-coral-500 hover:bg-coral-600 text-white font-bold py-3 rounded-xl text-sm text-center transition-colors shadow-lg shadow-coral-500/20"
+          className="flex-1 bg-coral-500 hover:bg-coral-600 text-white font-bold py-3 rounded-xl text-sm text-center transition-colors"
         >
           🚗 Plan proefles — €60
         </Link>
@@ -43,6 +45,7 @@ export default function StickyMobileCTA() {
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-3 rounded-xl text-sm transition-colors"
+          aria-label="WhatsApp"
         >
           💬
         </a>

@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="nl" data-scroll-behavior="smooth" className={`${geistSans.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-[#080808] text-slate-100 antialiased">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-16 md:pb-0">{children}</main>
         <Footer />
 
         {/* Floating WhatsApp — desktop */}
