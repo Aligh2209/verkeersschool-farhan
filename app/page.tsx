@@ -488,14 +488,23 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* Savings banner */}
+          {/* Korting uitleg */}
           <Reveal className="mb-10">
-            <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-coral-500/20 bg-coral-500/5 w-fit">
-              <span className="text-coral-400 text-sm font-bold">💡</span>
-              <span className="text-slate-400 text-sm">
-                Met een pakket betaal je <span className="text-white font-semibold">~€30/les</span> — de helft van de losse prijs.
-                Bespaar tot <span className="text-coral-400 font-bold">€1.401</span>.
-              </span>
+            <div className="flex flex-wrap items-center gap-6 px-5 py-4 rounded-xl border border-coral-500/20 bg-coral-500/5">
+              <div className="flex items-center gap-2">
+                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">−€2/les</span>
+                <span className="text-slate-400 text-sm">€60 → <span className="text-white font-bold">€58</span> per les</span>
+              </div>
+              <span className="text-slate-700 hidden sm:block">+</span>
+              <div className="flex items-center gap-2">
+                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">−€50 examen</span>
+                <span className="text-slate-400 text-sm">€350 → <span className="text-white font-bold">€300</span></span>
+              </div>
+              <span className="text-slate-700 hidden sm:block">+</span>
+              <div className="flex items-center gap-2">
+                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">Termijnen</span>
+                <span className="text-slate-400 text-sm">2× +€50 · 4× +€100</span>
+              </div>
             </div>
           </Reveal>
 
@@ -505,114 +514,82 @@ export default function HomePage() {
               {
                 naam: 'Losse lessen',
                 prijs: '€60',
-                per: '/ les',
-                perLes: null,
-                bespaar: null,
+                totaalLabel: 'per les',
+                perLesInfo: null,
+                examenInfo: 'Examen apart: €350',
                 sub: 'Flexibel, geen verplichtingen.',
-                items: [
-                  '60 minuten per les',
-                  'Geen minimumafname',
-                  'Assen of Amersfoort',
-                  'Voortgangsgesprek op verzoek',
-                ],
+                items: ['60 minuten per les', 'Geen minimumafname', 'Assen of Amersfoort', 'Voortgangsgesprek op verzoek'],
                 top: false,
                 cta: 'Plan een les',
               },
               {
                 naam: 'Compleet',
-                prijs: '€1.199',
-                per: 'totaal',
-                perLes: '~€30/les',
-                bespaar: 'Bespaar €1.201',
-                sub: 'Van nul tot rijbewijs, alles inbegrepen.',
-                items: [
-                  '40 rijlessen van 60 min',
-                  'Theoriebegeleiding',
-                  'Tussentijdse toets (TTT)',
-                  'Eerste examen inbegrepen',
-                  'Voortgangsgesprekken',
-                  'Assen & Amersfoort',
-                ],
+                prijs: '€2.620',
+                totaalLabel: 'totaal (1× betaling)',
+                perLesInfo: '40 lessen × €58 + examen €300',
+                examenInfo: null,
+                sub: 'Van nul tot rijbewijs — alles inbegrepen.',
+                items: ['40 rijlessen · €58/les (i.p.v. €60)', 'Theoriebegeleiding', 'TTT inbegrepen', 'Examen €300 (i.p.v. €350)', 'Assen & Amersfoort'],
                 top: true,
-                cta: 'Inschrijven',
+                cta: 'Bekijk pakket',
               },
               {
                 naam: 'Intensief',
-                prijs: '€1.599',
-                per: 'totaal',
-                perLes: '~€32/les',
-                bespaar: 'Bespaar €1.401',
+                prijs: '€3.500',
+                totaalLabel: 'totaal (1× betaling)',
+                perLesInfo: '50 lessen × €58 + 2× examen €300',
+                examenInfo: null,
                 sub: 'Snel rijbewijs — spoedplanning mogelijk.',
-                items: [
-                  '50 rijlessen van 60 min',
-                  'Theoriebegeleiding',
-                  'Tussentijdse toets (TTT)',
-                  '2 examens inbegrepen',
-                  'Spoedplanning prioriteit',
-                  'Assen & Amersfoort',
-                ],
+                items: ['50 rijlessen · €58/les (i.p.v. €60)', 'Theoriebegeleiding', 'TTT inbegrepen', '2× Examen €300 (i.p.v. €350)', 'Spoedplanning · Assen & Amersfoort'],
                 top: false,
-                cta: 'Inschrijven',
+                cta: 'Bekijk pakket',
               },
             ].map((p, i) => (
               <Reveal key={p.naam} delay={i * 0.1}>
                 <TiltCard
                   className={`relative h-full rounded-2xl flex flex-col transition-all ${
                     p.top
-                      ? 'bg-[#130800] border-2 border-coral-500/80 shadow-2xl shadow-coral-500/15 md:-mt-4 md:mb-0'
+                      ? 'bg-[#130800] border-2 border-coral-500/80 shadow-2xl shadow-coral-500/15 md:-mt-4'
                       : 'bg-[#111111] border border-[#222222] hover:border-[#333333]'
                   }`}
                 >
-                  {/* Badge */}
                   {p.top && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-coral-500 text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest whitespace-nowrap shadow-lg">
                       ⭐ Meest gekozen
                     </div>
                   )}
-
                   <div className="p-7 flex flex-col h-full">
-                    {/* Name + savings */}
-                    <div className="flex items-start justify-between mb-1">
-                      <h3 className="text-white font-extrabold text-lg">{p.naam}</h3>
-                      {p.bespaar && (
-                        <span className="text-[10px] font-bold text-coral-400 bg-coral-500/10 border border-coral-500/25 px-2 py-0.5 rounded-full whitespace-nowrap">
-                          {p.bespaar}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-slate-500 text-xs mb-5">{p.sub}</p>
+                    <h3 className="text-white font-extrabold text-lg mb-1">{p.naam}</h3>
+                    <p className="text-slate-500 text-xs mb-4">{p.sub}</p>
 
-                    {/* Price */}
-                    <div className="mb-1">
-                      <span className={`text-4xl font-extrabold ${p.top ? 'text-coral-400' : 'text-white'}`}>
+                    {/* Prijs */}
+                    <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-xl p-4 mb-5">
+                      <span className={`text-3xl font-extrabold ${p.top ? 'text-coral-400' : 'text-white'}`}>
                         {p.prijs}
                       </span>
-                      <span className="text-slate-500 text-sm ml-2">{p.per}</span>
+                      <span className="text-slate-500 text-xs ml-2">{p.totaalLabel}</span>
+                      {p.perLesInfo && (
+                        <p className="text-slate-600 text-[11px] mt-1.5">{p.perLesInfo}</p>
+                      )}
+                      {p.examenInfo && (
+                        <p className="text-slate-600 text-[11px] mt-1.5">{p.examenInfo}</p>
+                      )}
                     </div>
-                    {p.perLes && (
-                      <p className="text-slate-600 text-xs mb-6">
-                        = <span className="text-slate-400 font-semibold">{p.perLes}</span> bij dit pakket
-                      </p>
-                    )}
-                    {!p.perLes && <div className="mb-6" />}
 
-                    {/* Features */}
-                    <ul className="space-y-2.5 mb-8 flex-1">
+                    <ul className="space-y-2.5 mb-7 flex-1">
                       {p.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300">
-                          <span className={`text-xs shrink-0 ${p.top ? 'text-coral-400' : 'text-slate-500'}`}>✓</span>
+                        <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+                          <span className={`text-xs shrink-0 mt-0.5 ${p.top ? 'text-coral-400' : 'text-slate-600'}`}>✓</span>
                           {item}
                         </li>
                       ))}
                     </ul>
 
-                    {/* CTA */}
-                    <Link
-                      href="/boeken"
-                      className={`block text-center font-bold py-3.5 rounded-xl transition-all text-sm ${
+                    <Link href="/pakketten"
+                      className={`block text-center font-bold py-3.5 rounded-xl transition-all text-sm hover:-translate-y-0.5 ${
                         p.top
-                          ? 'bg-coral-500 hover:bg-coral-600 text-white shadow-lg shadow-coral-500/25 hover:-translate-y-0.5'
-                          : 'bg-[#1a1a1a] hover:bg-[#222222] border border-[#2c2c2c] text-white hover:-translate-y-0.5'
+                          ? 'bg-coral-500 hover:bg-coral-600 text-white shadow-lg shadow-coral-500/25'
+                          : 'bg-[#1a1a1a] hover:bg-[#222222] border border-[#2c2c2c] text-white'
                       }`}
                     >
                       {p.cta}
@@ -626,10 +603,10 @@ export default function HomePage() {
           {/* Bottom note */}
           <Reveal className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#1a1a1a]">
             <p className="text-slate-600 text-xs">
-              * Alle bedragen inclusief btw. CBR-examengeld niet inbegrepen bij losse lessen.
+              * Pakketprijzen bij eenmalige betaling. In 2 termijnen +€50 · in 4 termijnen +€100.
             </p>
             <Link href="/pakketten" className="text-slate-500 hover:text-coral-400 text-sm transition-colors underline underline-offset-4 whitespace-nowrap">
-              Volledige prijslijst →
+              Volledige prijslijst & termijnen →
             </Link>
           </Reveal>
 
