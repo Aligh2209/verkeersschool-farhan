@@ -608,7 +608,7 @@ export default function HomePage() {
 
                     {/* CTA */}
                     <Link
-                      href="/contact"
+                      href="/boeken"
                       className={`block text-center font-bold py-3.5 rounded-xl transition-all text-sm ${
                         p.top
                           ? 'bg-coral-500 hover:bg-coral-600 text-white shadow-lg shadow-coral-500/25 hover:-translate-y-0.5'
@@ -707,4 +707,6 @@ export default function HomePage() {
     </>
   )
 }
+
+
 
