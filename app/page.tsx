@@ -101,7 +101,7 @@ function FloatCard({
 ══════════════════════════════════════════════════════════ */
 
 const TICKER_TEXT =
-  'ASSEN · AMERSFOORT · 92% SLAGINGSPERCENTAGE · 500+ LEERLINGEN GESLAAGD · ⭐ 4.9 / 5 · RIJBEWIJS OP MAAT · WRM GECERTIFICEERD · GEEN VERBORGEN KOSTEN · '
+  'ASSEN · AMERSFOORT · 92% SLAGINGSPERCENTAGE · 500+ LEERLINGEN GESLAAGD · LES IN 4 TALEN · WRM GECERTIFICEERD · GEEN VERBORGEN KOSTEN · ARABISCH · KOERDISCH · ENGELS · NEDERLANDS · '
 
 function Ticker() {
   const doubled = TICKER_TEXT + TICKER_TEXT
@@ -428,7 +428,7 @@ export default function HomePage() {
               {[
                 '📍 Actief in Assen & Amersfoort',
                 '🚗 Moderne auto met dubbele bediening',
-                '🌍 Les in Nederlands of Engels',
+                '🌍 Les in 4 talen: NL · EN · AR · KU',
                 '📅 Flexibele lestijden — ook avond & weekend',
                 '🔁 Na zak: direct doorgaan',
               ].map((item) => (
@@ -476,6 +476,7 @@ export default function HomePage() {
                     { icon: '❌', tekst: 'Geen examenkorting' },
                     { icon: '❌', tekst: 'Geen termijnbetalingen' },
                     { icon: '⚠️', tekst: 'Slagingspercentage onbekend' },
+                    { icon: '❌', tekst: 'Alleen les in het Nederlands' },
                     { icon: '❌', tekst: 'Contact via callcenter' },
                     { icon: '❌', tekst: 'Theoriebegeleiding apart betalen' },
                     { icon: '⚠️', tekst: 'Na zak: opnieuw vol betalen' },
@@ -508,6 +509,7 @@ export default function HomePage() {
                     { tekst: '€50 examenkorting bij pakket', extra: '€300 i.p.v. €350' },
                     { tekst: 'Betalen in 2 of 4 termijnen', extra: 'Flexibel' },
                     { tekst: '92% slagingspercentage', extra: 'Gemeten' },
+                    { tekst: 'Les in 4 talen: NL · EN · AR · KU', extra: 'Uniek' },
                     { tekst: 'Direct contact met Farhan', extra: 'WhatsApp' },
                     { tekst: 'Theoriebegeleiding inbegrepen', extra: 'In pakket' },
                     { tekst: 'Na zak: direct doorgaan', extra: 'Geen extra kosten' },
@@ -714,7 +716,7 @@ export default function HomePage() {
               { v: 'Hoe snel kan ik beginnen met rijlessen?', a: 'Vaak al binnen een week — soms zelfs eerder. Stuur een WhatsApp en we kijken direct naar beschikbaarheid in Assen of Amersfoort.' },
               { v: 'Is theoriebegeleiding inbegrepen?', a: 'In het Compleet- en Intensief-pakket: ja. We helpen je met theoriemateriaal en kunnen je begeleiden zodat je theorie en praktijk tegelijk kunt doen.' },
               { v: 'Wat als ik al eerder gereden heb?', a: 'Dan starten we met een proefles om je niveau te beoordelen. Op basis daarvan adviseren we hoeveel lessen je nodig hebt — niet meer, niet minder.' },
-              { v: 'Geven jullie ook les in het Engels?', a: 'Ja. Farhan geeft les in zowel het Nederlands als het Engels. Geef het aan bij de aanmelding.' },
+              { v: 'In welke talen geven jullie les?', a: 'Farhan geeft les in het Nederlands, Engels, Arabisch en Koerdisch. Geef je voorkeur aan bij de aanmelding.' },
             ].map((item, i) => (
               <motion.details
                 key={item.v}

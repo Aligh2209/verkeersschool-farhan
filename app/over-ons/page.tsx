@@ -16,7 +16,7 @@ const voordelen = [
   { icon: '📚', titel: 'Theoriebegeleiding',            tekst: 'In Compleet & Intensief inbegrepen.' },
   { icon: '📍', titel: '2 locaties',                   tekst: 'Actief in Assen én Amersfoort.' },
   { icon: '⚡', titel: 'Snel starten',                 tekst: 'Vaak al binnen een week beginnen.' },
-  { icon: '🌍', titel: 'Nederlands & Engels',           tekst: 'Les in de taal die jou het beste uitkomt.' },
+  { icon: '🌍', titel: '4 talen',                       tekst: 'Nederlands · Engels · Arabisch · Koerdisch — les in jouw taal.' },
   { icon: '📅', titel: 'Flexibele tijden',             tekst: 'Ochtend, middag én avond — ook zaterdag.' },
   { icon: '🛡️', titel: 'WRM gecertificeerd',          tekst: 'Professioneel gecertificeerde rijinstructeur.' },
 ]
@@ -125,7 +125,7 @@ export default function OverOnsPage() {
                 Geen callcenter. Geen tussenpersonen. Je hebt altijd direct contact met Farhan — voor vragen, planning of gewoon een kort overleg.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['WRM gecertificeerd', 'Nederlands & Engels', 'Assen & Amersfoort', 'Direct bereikbaar'].map(tag => (
+                {['WRM gecertificeerd', 'NL · EN · AR · KU', 'Assen & Amersfoort', 'Direct bereikbaar'].map(tag => (
                   <span key={tag}
                     className="text-xs text-coral-400 border border-coral-500/25 bg-coral-500/8 px-3 py-1.5 rounded-full font-medium">
                     ✓ {tag}
@@ -270,7 +270,7 @@ export default function OverOnsPage() {
                 { v: 'Welk pakket past bij mij?', a: 'Begin altijd met een proefles. Farhan beoordeelt je niveau en adviseert het juiste pakket — zonder druk.' },
                 { v: 'Wat als ik zak?', a: 'Dan gaan we direct door. We bespreken wat er misging, oefenen de zwakke punten en plannen het herexamen zo snel mogelijk.' },
                 { v: 'Hoe snel kan ik starten?', a: 'Vaak al binnen een week. Stuur een WhatsApp en we kijken direct naar beschikbaarheid.' },
-                { v: 'Geven jullie les in het Engels?', a: 'Ja. Farhan geeft les in zowel het Nederlands als het Engels. Geef dit aan bij de aanmelding.' },
+                { v: 'In welke talen geven jullie les?', a: 'Farhan geeft les in het Nederlands, Engels, Arabisch en Koerdisch. Geef je voorkeur aan bij de aanmelding — hij past zich aan.' },
                 { v: 'Wat zit er in de pakketten?', a: 'Rijlessen, theoriebegeleiding, TTT (proefexamen) en het rijexamen — allemaal inbegrepen. Geen verborgen kosten.' },
               ].map(item => (
                 <details key={item.v}

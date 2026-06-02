@@ -17,7 +17,7 @@ module.exports = {
   email: 'info@verkeersschoolfarhan.nl',
   telefoon: '+31 6 44626777',
   bereikbaar: 'Maandag t/m zaterdag, 08:00–20:00',  // ← aanpassen
-  talen: ['Nederlands', 'Engels'],                  // ← aanvullen indien nodig
+  talen: ['Nederlands', 'Engels', 'Arabisch', 'Koerdisch'],
 
   // ── PRIJZEN ──────────────────────────────────────────────
   losLes: {
