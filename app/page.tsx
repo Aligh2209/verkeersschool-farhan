@@ -488,24 +488,15 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* Korting uitleg */}
+          {/* Korting — simpel */}
           <Reveal className="mb-10">
-            <div className="flex flex-wrap items-center gap-6 px-5 py-4 rounded-xl border border-coral-500/20 bg-coral-500/5">
-              <div className="flex items-center gap-2">
-                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">−€2/les</span>
-                <span className="text-slate-400 text-sm">€60 → <span className="text-white font-bold">€58</span> per les</span>
-              </div>
-              <span className="text-slate-700 hidden sm:block">+</span>
-              <div className="flex items-center gap-2">
-                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">−€50 examen</span>
-                <span className="text-slate-400 text-sm">€350 → <span className="text-white font-bold">€300</span></span>
-              </div>
-              <span className="text-slate-700 hidden sm:block">+</span>
-              <div className="flex items-center gap-2">
-                <span className="text-coral-400 font-extrabold text-sm bg-coral-500/15 px-2 py-0.5 rounded-lg">Termijnen</span>
-                <span className="text-slate-400 text-sm">2× +€50 · 4× +€100</span>
-              </div>
-            </div>
+            <p className="text-slate-500 text-sm">
+              Met pakket: <span className="text-white font-semibold">€58/les</span> <span className="text-coral-400">(−€2)</span>
+              <span className="mx-3 text-slate-700">·</span>
+              Examen: <span className="text-white font-semibold">€300</span> <span className="text-coral-400">(−€50)</span>
+              <span className="mx-3 text-slate-700">·</span>
+              Termijnen mogelijk
+            </p>
           </Reveal>
 
           {/* Cards */}
