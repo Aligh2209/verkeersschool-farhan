@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+
 const SPOTS = { assen: 2, amersfoort: 1 }
 const TOTAL_SPOTS = 5
 

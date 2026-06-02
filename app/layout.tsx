@@ -11,11 +11,115 @@ import ExitIntent from "./components/ExitIntent";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
+const BASE_URL = "https://verkeersschoolfarhan.nl";
+
 export const metadata: Metadata = {
-  title: "Verkeersschool Farhan | Rijlessen in Assen & Amersfoort",
-  description: "Verkeersschool Farhan biedt professionele rijlessen in Assen en Amersfoort. 92% slagingspercentage. Plan een proefles voor €60.",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Verkeersschool Farhan | Rijlessen in Assen & Amersfoort",
+    template: "%s | Verkeersschool Farhan",
+  },
+  description:
+    "Verkeersschool Farhan — rijlessen in Assen en Amersfoort. 92% slagingspercentage, €58/les bij pakket, les in 4 talen (NL/EN/AR/KU). Plan een proefles voor €60.",
+  keywords: [
+    "rijschool Assen", "rijschool Amersfoort", "rijlessen Assen",
+    "rijlessen Amersfoort", "rijbewijs halen", "verkeersschool Farhan",
+    "rijles Arabisch", "rijles Koerdisch", "rijles Engels",
+    "proefles rijschool", "goedkope rijschool Nederland",
+    "rijschool 92% slagingspercentage",
+  ],
+  authors: [{ name: "Verkeersschool Farhan" }],
+  creator: "Verkeersschool Farhan",
+  publisher: "Verkeersschool Farhan",
+  alternates: {
+    canonical: BASE_URL,
+  },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    url: BASE_URL,
+    siteName: "Verkeersschool Farhan",
+    title: "Verkeersschool Farhan | Rijlessen in Assen & Amersfoort",
+    description:
+      "92% slagingspercentage. €58/les bij pakket. Les in Nederlands, Engels, Arabisch en Koerdisch. Plan een proefles voor €60.",
+    images: [
+      {
+        url: "/logo.svg",
+        width: 260,
+        height: 58,
+        alt: "Verkeersschool Farhan logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Verkeersschool Farhan | Rijlessen in Assen & Amersfoort",
+    description: "92% slagingspercentage. Plan een proefles voor €60.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  verification: {
+    // google: 'voeg-hier-je-google-search-console-code-in',
+  },
+};
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  name: "Verkeersschool Farhan",
+  description:
+    "Professionele rijschool in Assen en Amersfoort. 92% slagingspercentage. Les in Nederlands, Engels, Arabisch en Koerdisch.",
+  url: BASE_URL,
+  telephone: "+31644626777",
+  email: "info@verkeersschoolfarhan.nl",
+  priceRange: "€€",
+  currenciesAccepted: "EUR",
+  paymentAccepted: "iDEAL, Creditcard, Termijnbetaling",
+  areaServed: [
+    { "@type": "City", name: "Assen" },
+    { "@type": "City", name: "Amersfoort" },
+  ],
+  availableLanguage: ["Dutch", "English", "Arabic", "Kurdish"],
+  knowsLanguage: ["nl", "en", "ar", "ku"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Rijlespakketten",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Proefles" },
+        price: "60.00",
+        priceCurrency: "EUR",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Compleet pakket (40 lessen)" },
+        price: "2620.00",
+        priceCurrency: "EUR",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Intensief pakket (50 lessen)" },
+        price: "3500.00",
+        priceCurrency: "EUR",
+      },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "120",
+    bestRating: "5",
+  },
+  sameAs: [
+    `https://wa.me/31644626777`,
+  ],
 };
 
 export default function RootLayout({
@@ -25,6 +129,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" data-scroll-behavior="smooth" className={`${geistSans.variable} h-full`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://api.mollie.com" />
+      </head>
       <body className="min-h-full flex flex-col bg-[#080808] text-slate-100 antialiased">
         <Navbar />
         <main className="flex-1 pb-16 md:pb-0">{children}</main>
@@ -36,7 +148,7 @@ export default function RootLayout({
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex fixed bottom-8 right-6 z-50 w-12 h-12 bg-green-500 hover:bg-green-400 rounded-full items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
-          aria-label="WhatsApp"
+          aria-label="WhatsApp Verkeersschool Farhan"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -44,16 +156,9 @@ export default function RootLayout({
           </svg>
         </a>
 
-        {/* Sticky mobile CTA */}
         <StickyMobileCTA />
-
-        {/* Cookie banner */}
         <CookieBanner />
-
-        {/* FOMO notifications */}
         <FomoToast />
-
-        {/* Exit intent popup */}
         <ExitIntent />
       </body>
     </html>
