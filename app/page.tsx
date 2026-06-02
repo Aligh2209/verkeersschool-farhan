@@ -446,6 +446,99 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
+          VERGELIJKING
+      ════════════════════════════════════════ */}
+      <section className="py-20 px-6 bg-[#0a0a0a] border-y border-[#111]">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="text-center mb-12">
+            <p className="text-coral-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Vergelijking</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
+              Waarom niet de goedkoopste kiezen?
+            </h2>
+            <p className="text-slate-500 text-sm max-w-sm mx-auto">
+              Goedkoop is duur als je vaker zakt. Dit is het verschil.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+
+            {/* Andere rijscholen */}
+            <Reveal delay={0}>
+              <div className="rounded-2xl border border-[#1a1a1a] bg-[#0d0d0d] overflow-hidden h-full">
+                <div className="px-6 py-4 border-b border-[#1a1a1a]">
+                  <p className="text-slate-500 text-xs uppercase tracking-widest font-bold mb-1">Andere rijscholen</p>
+                  <p className="text-slate-600 text-xs">Grote ketens & doorsnee rijscholen</p>
+                </div>
+                <ul className="divide-y divide-[#111]">
+                  {[
+                    { icon: '❌', tekst: 'Wisselende instructeurs' },
+                    { icon: '❌', tekst: 'Verborgen kosten voor TTT & examen' },
+                    { icon: '❌', tekst: 'Geen examenkorting' },
+                    { icon: '❌', tekst: 'Geen termijnbetalingen' },
+                    { icon: '⚠️', tekst: 'Slagingspercentage onbekend' },
+                    { icon: '❌', tekst: 'Contact via callcenter' },
+                    { icon: '❌', tekst: 'Theoriebegeleiding apart betalen' },
+                    { icon: '⚠️', tekst: 'Na zak: opnieuw vol betalen' },
+                  ].map(r => (
+                    <li key={r.tekst} className="flex items-center gap-3 px-6 py-3 text-sm">
+                      <span className="shrink-0 text-base">{r.icon}</span>
+                      <span className="text-slate-500">{r.tekst}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Verkeersschool Farhan */}
+            <Reveal delay={0.1}>
+              <div className="rounded-2xl border border-coral-500/50 bg-[#130800] overflow-hidden h-full shadow-xl shadow-coral-500/10">
+                <div className="px-6 py-4 border-b border-coral-500/20 flex items-center justify-between">
+                  <div>
+                    <p className="text-coral-400 text-xs uppercase tracking-widest font-bold mb-1">Verkeersschool Farhan</p>
+                    <p className="text-slate-600 text-xs">Persoonlijk · Transparant · Bewezen</p>
+                  </div>
+                  <span className="text-[10px] bg-coral-500 text-white font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                    ⭐ Aanbevolen
+                  </span>
+                </div>
+                <ul className="divide-y divide-[#1a1a1a]">
+                  {[
+                    { tekst: 'Altijd dezelfde instructeur (Farhan)', extra: null },
+                    { tekst: 'Alles inbegrepen in het pakket', extra: null },
+                    { tekst: '€50 examenkorting bij pakket', extra: '€300 i.p.v. €350' },
+                    { tekst: 'Betalen in 2 of 4 termijnen', extra: 'Flexibel' },
+                    { tekst: '92% slagingspercentage', extra: 'Gemeten' },
+                    { tekst: 'Direct contact met Farhan', extra: 'WhatsApp' },
+                    { tekst: 'Theoriebegeleiding inbegrepen', extra: 'In pakket' },
+                    { tekst: 'Na zak: direct doorgaan', extra: 'Geen extra kosten' },
+                  ].map(r => (
+                    <li key={r.tekst} className="flex items-center justify-between gap-3 px-6 py-3 text-sm">
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-400 shrink-0">✓</span>
+                        <span className="text-white font-medium">{r.tekst}</span>
+                      </div>
+                      {r.extra && (
+                        <span className="text-[10px] text-coral-400 bg-coral-500/10 border border-coral-500/20 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
+                          {r.extra}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <div className="p-5 border-t border-coral-500/20">
+                  <Link href="/boeken"
+                    className="block text-center bg-coral-500 hover:bg-coral-600 text-white font-bold py-3.5 rounded-xl transition-all text-sm shadow-lg shadow-coral-500/20 hover:-translate-y-0.5">
+                    🚗 Kies Verkeersschool Farhan
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
           STATS
       ════════════════════════════════════════ */}
       <section className="py-16 px-6 bg-navy-900 border-y border-navy-700">
