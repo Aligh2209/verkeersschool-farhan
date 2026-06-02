@@ -3,7 +3,6 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ChatBot from "./components/ChatBot";
 import FomoToast from "./components/FomoToast";
 import CookieBanner from "./components/CookieBanner";
 import StickyMobileCTA from "./components/StickyMobileCTA";
@@ -36,7 +35,7 @@ export default function RootLayout({
           href="https://wa.me/31644626777?text=Hallo%2C%20ik%20wil%20meer%20informatie%20over%20rijlessen"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex fixed bottom-24 right-[4.5rem] z-50 w-12 h-12 bg-green-500 hover:bg-green-400 rounded-full items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
+          className="hidden md:flex fixed bottom-8 right-6 z-50 w-12 h-12 bg-green-500 hover:bg-green-400 rounded-full items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
           aria-label="WhatsApp"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
@@ -56,9 +55,6 @@ export default function RootLayout({
 
         {/* Exit intent popup */}
         <ExitIntent />
-
-        {/* AI Chatbot */}
-        <ChatBot />
       </body>
     </html>
   );
